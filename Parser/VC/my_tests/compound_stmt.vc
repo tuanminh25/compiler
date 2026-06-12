@@ -1,0 +1,62 @@
+// "{" "}"
+{}
+
+// "{" var-decl* "}"
+{int i = 10; float j[100], k, l; boolean ehe = true;}
+
+// "{" stmt* "}"
+{
+    if (you_can_see_this == true) {
+        return meaning_im_good;
+    } else {
+        for (; i = 12; i) {
+            while (abc == xyz) {
+                i = 10 + i;
+            }
+        }
+        return;
+    }
+}
+
+// "{" stmt*  var-decl* "}"
+/*
+{
+    if (you_can_see_this == true) {
+        return meaning_im_good;
+    } else {
+        for (; i = 12; i) {
+            while (abc == xyz) {
+                i = 10 + i;
+            }
+        }
+        return;
+    }
+
+    int i = 10; 
+    float j[100], k,l; 
+    boolean ehe = true
+}
+*/
+
+
+// "{"  var-decl*  stmt* "}"
+{
+
+    int i = 10; 
+    float j[100], l, p; 
+    boolean time_has_moved_again = true;
+
+    if (you_can_see_this == true) {
+        return meaning_im_good;
+    } else {
+        for (; i = 12; i) {
+            while (abc == xyz) {
+                i = 10 + i;
+            }
+        }
+        return;
+    }
+
+
+
+}

@@ -1,0 +1,41 @@
+Minimal function — no params, no local vars
+
+int foo() { return 5; }
+int main() { return 0; }
+Function with scalar params, just return
+
+int id(int a) { return a; }
+int main() { return 0; }
+Function with scalar params + arithmetic
+
+int add(int a, int b) { return a + b; }
+Local var declaration + assignment
+
+int foo() { int x; x = 3; return x; }
+Local var with init
+
+int foo() { int x = 5; return x; }
+Function call with scalar args from main
+
+int add(int a, int b) { return a + b; }
+int main() { int r; r = add(2, 3); return 0; }
+Built-in calls from main
+
+int main() { putInt(42); putLn(); return 0; }
+Float versions of all the above
+
+Boolean return
+
+boolean alwaysTrue() { return true; }
+Local array declaration + element assign
+
+int main() { int a[3]; a[0] = 1; a[1] = 2; return 0; }
+Local array with init
+
+int main() { int a[3] = {1,2,3}; return 0; }
+Array element read
+
+int main() { int a[3]; a[0] = 7; int x; x = a[0]; return 0; }
+Chained assignment
+
+int main() { int x; int y; x = y = 5; return 0; }

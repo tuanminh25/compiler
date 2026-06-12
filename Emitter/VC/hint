@@ -1,0 +1,73 @@
+int a = b; — Is it an AssignExpr?
+No. int a = b; is a GlobalVarDecl with:
+
+vAST.T = IntType
+vAST.I = Identifier "a"
+vAST.E = VarExpr(SimpleVar("b")) ← just the initializer expression
+AssignExpr only appears for a standalone assignment statement like a = b; inside a function body. A declaration with initializer is not an AssignExpr — the = in a declaration is syntax sugar, not a runtime assignment expression.
+
+VarExpr and SimpleVar Relationship
+VarExpr wraps a Variable (which can be SimpleVar or an array-indexed var). For b in int a = b;:
+
+VarExpr
+  └─ V: SimpleVar
+           └─ I: Identifier("b")
+                   └─ decl → points to GlobalVarDecl for b (set by type checker)
+So visitVarExpr just delegates:
+
+ast.V.visit(this, o);  // goes to visitSimpleVar
+Nothing else. VarExpr does zero work itself — it's a wrapper.
+
+visitSimpleVar does the actual work: looks at ast.I.decl to find the declaration, then emits the correct load instruction.
+
+The Key Principle You're Missing: Operators Are Not Values
+The JVM operand stack only ever holds values — never operators. Operators are encoded in the instruction itself, not pushed onto the stack. So:
+
+iadd is an instruction that pops two ints and pushes one int
+There is no "push the + operator onto the stack" step
+The operator literally doesn't appear on the stack at any point
+Frame Responsibility at Each Layer
+The rule is: every expression visitor leaves exactly 1 net item on the stack and is fully responsible for its own frame tracking.
+
+SimpleVar — emits a load instruction, pushes 1:
+
+emit(iload_2)    → JVM: slot 2 value appears on stack
+frame.push()     → tracks it
+net: +1
+VarExpr — just delegates, net: +1 (SimpleVar handled it)
+
+UnaryExpr -x:
+
+visit E          → child does frame.push(), cur+1, stack: [x]
+emit ineg        → JVM: pops x, pushes -x, stack: [-x]
+frame.pop()      → tracks x consumed
+frame.push()     → tracks -x produced
+net: +1
+The -x replaces x — depth doesn't change from the unary op itself, but the total net from before visiting is +1.
+
+BinaryExpr a + b:
+
+visit E1         → child does frame.push(), cur+1, stack: [..., a]
+visit E2         → child does frame.push(), cur+1, stack: [..., a, b]
+emit iadd        → JVM: pops a and b, pushes a+b, stack: [..., a+b]
+frame.pop(2)     → tracks both consumed
+frame.push()     → tracks result produced
+net: +1
+So every expression visitor — no matter how complex — leaves exactly +1 on the stack. The caller never needs to add frame.push() after visiting a child expression — the child always handles it.
+
+AssignExpr — Why Partially Correct
+AssignExpr (E1 = LHS, E2 = RHS) for a = 5 as a statement:
+
+The complication: assignment in VC is an expression (it has a value). So c = a = 5 is legal. This means visitAssignExpr must leave the assigned value on the stack, even if the caller is a statement:
+
+visit E2          → pushes the value, stack: [5]
+dup               → stack: [5, 5]
+store into E1     → pops one copy, stores to variable, stack: [5]
+                  → one copy remains as the "return value" of assignment
+net: +1
+Then visitExprStmt pops that remaining value when assignment is used as a statement:
+
+ast.E.visit(this, o);   // visitAssignExpr leaves 1 on stack
+emit(JVM.POP);          // discard it, we're in a statement context
+frame.pop();
+Your intuition "apart from visit lower expr, nothing else" was wrong because AssignExpr has the extra responsibility of storing back to E1 and the dup to preserve the expression value

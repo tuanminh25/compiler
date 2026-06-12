@@ -1,0 +1,12 @@
+/* The starter code can compile a single function consisting 
+ * of expression statements, where each expression contains only '+' and '\*'. 
+ * void something() {}
+ */
+
+void main(int canYouBelieve, float ehe, boolean imtrolling ) {
+	if (a == b) {
+		return;
+	}
+	x + (1 * y) + 100;
+}
+

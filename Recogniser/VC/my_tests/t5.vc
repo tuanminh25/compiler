@@ -1,0 +1,51 @@
+// t05: function declarations and calls
+// covers: para-list (empty, single, multiple), arg-list (empty, single, multiple), nested calls
+
+// no params, void return
+void noParams() {
+    return;
+}
+
+// single param
+int singleParam(int x) {
+    return x;
+}
+
+// multiple params, all types
+float multiParams(int a, float b, boolean c) {
+    return b;
+}
+
+// array param
+void arrayParam(int arr[]) {
+    return;
+}
+
+void main() {
+    int i;
+    float f;
+    boolean b;
+
+    // call with no args
+    noParams();
+
+    // call with single arg
+    i = singleParam(1);
+
+    // call with multiple args
+    f = multiParams(1, 3.14, true);
+
+    // call with expression args
+    i = singleParam(1 + 2 * 3);
+
+    // nested function calls
+    i = singleParam(singleParam(5));
+
+    // call result used in expression
+    i = singleParam(1) + singleParam(2);
+
+    // call in condition
+    if (singleParam(0) == 0) {
+        i = 1;
+    }
+}

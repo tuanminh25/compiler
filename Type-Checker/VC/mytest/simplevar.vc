@@ -1,0 +1,22 @@
+int main() {
+    int x;
+    float y;
+    boolean o;
+
+    int k[];
+    float j[];
+    boolean p[];
+
+    x;
+    y;
+    o;
+    k[1];
+    j[9];
+    p[7];
+
+
+    // error downward
+    h; 
+
+    return 0;
+}

@@ -1,0 +1,11 @@
+int main() {
+    boolean a = true;
+    boolean b = false;
+    int x = 1;
+    int y = 0;
+
+    if (a && b) { putIntLn(1); } else { putIntLn(0); }
+    if (a || b) { putIntLn(1); } else { putIntLn(0); }
+
+    return 0;
+}

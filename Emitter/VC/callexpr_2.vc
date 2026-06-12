@@ -1,0 +1,12 @@
+int double(int a) {
+    return a + a;
+}
+
+int triple(int a) {
+    return a + a + a;
+}
+
+int main() {
+    int x = triple(double(3));
+    return 0;
+}

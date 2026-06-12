@@ -1,0 +1,64 @@
+int main() {
+    int x;
+    float y;
+    boolean o;
+
+    int k[];
+    float j[];
+    boolean p[];
+
+    x = 10;
+    x = -10;
+    
+    y = 11;
+    y = -11.1;
+
+    o = true;
+    o = false;
+
+
+
+    // error cases
+    x = true;
+    x = false;
+    x = 19.1;
+    y = true;
+    y = false;
+    o = 13;
+    o = 11.1;
+    // error cases for simple var
+
+
+    // Broken at this point because Have not handeled ArrayExpr
+    // Comeback when done
+
+    // Legit
+    k[1] = 1;
+    j[9] = 3;
+    p[7] = true;
+    p[7] = false;
+
+    k[x] = 9;
+    j[x] = 3;
+    p[x] = true;
+    p[x] = false;
+
+    // Illegal
+    k[1] = false;
+    k[2] = true;
+    k[1] = 9.10;
+    k[2] = 13;
+    j[9] = true;
+    j[8] = false;
+    p[7] = 11.11;
+    p[7] = 12;
+    k[y] = 9;
+    j[y] = 3;
+    p[y] = true;
+    p[y] = false;
+    k[o] = 9;
+    j[o] = 3;
+    p[o] = true;
+    p[o] = false;
+    return 0;
+}

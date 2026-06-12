@@ -1,0 +1,27 @@
+Program
+  DeclList
+    FuncDecl
+      void
+      main
+      EmptyParaList
+      CompoundStmt
+        DeclList
+          LocalVarDecl
+            int
+            i
+            EmptyExpr
+          DeclList
+            LocalVarDecl
+              float
+              f
+              EmptyExpr
+            DeclList
+              GloablVarDecl
+                boolean
+                b
+                =
+                BooleanExpr
+                  true
+              EmptyDeclList
+        EmptyStmtList
+    EmptyDeclList

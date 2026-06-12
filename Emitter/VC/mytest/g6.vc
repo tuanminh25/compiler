@@ -1,0 +1,11 @@
+int ga[3] = {1, 2, 3};
+float fa[2] = {1.0, 2.0};
+boolean ba[2] = {true, false};
+
+int gi = ga[1];
+float gf = fa[0];
+boolean gb = ba[1];
+
+int main() {
+    return 0;
+}

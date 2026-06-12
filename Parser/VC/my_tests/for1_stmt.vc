@@ -1,0 +1,30 @@
+
+for (i = 10; i < 101; i = i + 1) {
+    hihi = hahha;
+}
+
+for (; i < 101; i = i + 1) {
+    hihi = hahha;
+}
+
+
+for (i = 10; ; i = i + 1) {
+    hihi = hahha;
+}
+
+for (i = 10; ; i = i + 1) {
+    hihi = hahha;
+}
+
+for (; i < 101; i = i + 1) {
+    hihi = hahha;
+}
+
+
+for (i = 10; i < 101; ) {
+    hihi = hahha;
+}
+
+for (; ; ) {
+    hihi = hahha;
+}

@@ -1,0 +1,7 @@
+float x = 0.0;
+int a = 5;
+
+int main() {
+    x = a;
+    return 0;
+}

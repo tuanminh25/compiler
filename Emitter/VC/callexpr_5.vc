@@ -1,0 +1,8 @@
+int get() {
+    return 5;
+}
+
+int main() {
+    float x = get();
+    return 0;
+}

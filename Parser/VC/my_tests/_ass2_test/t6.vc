@@ -1,0 +1,41 @@
+// t06: primary-expr variations and all literal types
+
+void main() {
+    int i;
+    float f;
+    boolean b;
+    int arr[5];
+
+    // INTLITERAL
+    i = 0;
+    i = 42;
+    i = -1;  // unary minus + intliteral
+
+    // FLOATLITERAL
+    f = 0.0;
+    f = 3.14;
+
+    // BOOLLITERAL
+    b = true;
+    b = false;
+
+    // STRINGLITERAL — assigned to show parser accepts it
+    // (type checking is semantic, not syntactic)
+    i = "hello";
+
+    // array access
+    i = arr[0];
+    i = arr[1 + 2];      // expr inside brackets
+    i = arr[arr[0]];     // nested array access
+
+    // identifier (plain var)
+    i = i;
+
+    // grouped expr
+    i = (42);
+    i = (1 + 2);
+    f = (3.14 * 2.0);
+
+    // grouped nested
+    i = ((1 + 2) * (3 + 4));
+}

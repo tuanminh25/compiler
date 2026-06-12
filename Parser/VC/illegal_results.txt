@@ -1,0 +1,149 @@
+=== t19.vc ===
+======= The VC compiler =======
+ERROR: 2(1)..2(1): "A": undefined type!
+VC.Recogniser.SyntaxError
+	at VC.Recogniser.Recogniser.syntacticError(Recogniser.java:93)
+	at VC.Recogniser.Recogniser.parseTypes(Recogniser.java:189)
+	at VC.Recogniser.Recogniser.parseProgram(Recogniser.java:131)
+	at VC.vc.main(vc.java:37)
+Compilation was unsuccessful.
+
+=== t20.vc ===
+======= The VC compiler =======
+ERROR: 9(5)..9(7): illegal primary expression: int
+VC.Recogniser.SyntaxError
+	at VC.Recogniser.Recogniser.syntacticError(Recogniser.java:93)
+	at VC.Recogniser.Recogniser.parsePrimaryExpr(Recogniser.java:639)
+	at VC.Recogniser.Recogniser.parseUnaryExpr(Recogniser.java:588)
+	at VC.Recogniser.Recogniser.parseMultiplicativeExpr(Recogniser.java:561)
+	at VC.Recogniser.Recogniser.parseAdditiveExpr(Recogniser.java:548)
+	at VC.Recogniser.Recogniser.parseRelExpr(Recogniser.java:531)
+	at VC.Recogniser.Recogniser.parseEqualityExpr(Recogniser.java:514)
+	at VC.Recogniser.Recogniser.parseCondAndExpr(Recogniser.java:499)
+	at VC.Recogniser.Recogniser.parseCondOrExpr(Recogniser.java:486)
+	at VC.Recogniser.Recogniser.parseAssignExpr(Recogniser.java:474)
+	at VC.Recogniser.Recogniser.parseExpr(Recogniser.java:469)
+	at VC.Recogniser.Recogniser.parseExprStmt(Recogniser.java:443)
+	at VC.Recogniser.Recogniser.parseStmt(Recogniser.java:366)
+	at VC.Recogniser.Recogniser.parseWhileStmt(Recogniser.java:416)
+	at VC.Recogniser.Recogniser.parseStmt(Recogniser.java:360)
+	at VC.Recogniser.Recogniser.parseStmtList(Recogniser.java:352)
+	at VC.Recogniser.Recogniser.parseCompoundStmt(Recogniser.java:338)
+	at VC.Recogniser.Recogniser.parseFuncDecl(Recogniser.java:325)
+	at VC.Recogniser.Recogniser.parseProgram(Recogniser.java:137)
+	at VC.vc.main(vc.java:37)
+Compilation was unsuccessful.
+
+=== t21.vc ===
+======= The VC compiler =======
+ERROR: 5(3)..5(5): illegal primary expression: int
+VC.Recogniser.SyntaxError
+	at VC.Recogniser.Recogniser.syntacticError(Recogniser.java:93)
+	at VC.Recogniser.Recogniser.parsePrimaryExpr(Recogniser.java:639)
+	at VC.Recogniser.Recogniser.parseUnaryExpr(Recogniser.java:588)
+	at VC.Recogniser.Recogniser.parseMultiplicativeExpr(Recogniser.java:561)
+	at VC.Recogniser.Recogniser.parseAdditiveExpr(Recogniser.java:548)
+	at VC.Recogniser.Recogniser.parseRelExpr(Recogniser.java:531)
+	at VC.Recogniser.Recogniser.parseEqualityExpr(Recogniser.java:514)
+	at VC.Recogniser.Recogniser.parseCondAndExpr(Recogniser.java:499)
+	at VC.Recogniser.Recogniser.parseCondOrExpr(Recogniser.java:486)
+	at VC.Recogniser.Recogniser.parseAssignExpr(Recogniser.java:474)
+	at VC.Recogniser.Recogniser.parseExpr(Recogniser.java:469)
+	at VC.Recogniser.Recogniser.parseExprStmt(Recogniser.java:443)
+	at VC.Recogniser.Recogniser.parseStmt(Recogniser.java:366)
+	at VC.Recogniser.Recogniser.parseStmtList(Recogniser.java:352)
+	at VC.Recogniser.Recogniser.parseCompoundStmt(Recogniser.java:338)
+	at VC.Recogniser.Recogniser.parseFuncDecl(Recogniser.java:325)
+	at VC.Recogniser.Recogniser.parseProgram(Recogniser.java:137)
+	at VC.vc.main(vc.java:37)
+Compilation was unsuccessful.
+
+=== t22.vc ===
+======= The VC compiler =======
+ERROR: 5(3)..5(3): ";" expected here
+VC.Recogniser.SyntaxError
+	at VC.Recogniser.Recogniser.syntacticError(Recogniser.java:93)
+	at VC.Recogniser.Recogniser.match(Recogniser.java:80)
+	at VC.Recogniser.Recogniser.parseVarDecl(Recogniser.java:313)
+	at VC.Recogniser.Recogniser.parseVarDeclList(Recogniser.java:345)
+	at VC.Recogniser.Recogniser.parseCompoundStmt(Recogniser.java:335)
+	at VC.Recogniser.Recogniser.parseFuncDecl(Recogniser.java:325)
+	at VC.Recogniser.Recogniser.parseProgram(Recogniser.java:137)
+	at VC.vc.main(vc.java:37)
+Compilation was unsuccessful.
+
+=== t23.vc ===
+======= The VC compiler =======
+ERROR: 4(12)..4(12): ";" expected here
+VC.Recogniser.SyntaxError
+	at VC.Recogniser.Recogniser.syntacticError(Recogniser.java:93)
+	at VC.Recogniser.Recogniser.match(Recogniser.java:80)
+	at VC.Recogniser.Recogniser.parseExprStmt(Recogniser.java:445)
+	at VC.Recogniser.Recogniser.parseStmt(Recogniser.java:366)
+	at VC.Recogniser.Recogniser.parseStmtList(Recogniser.java:352)
+	at VC.Recogniser.Recogniser.parseCompoundStmt(Recogniser.java:338)
+	at VC.Recogniser.Recogniser.parseFuncDecl(Recogniser.java:325)
+	at VC.Recogniser.Recogniser.parseProgram(Recogniser.java:137)
+	at VC.vc.main(vc.java:37)
+Compilation was unsuccessful.
+
+=== t24.vc ===
+======= The VC compiler =======
+ERROR: 4(7)..4(11): identifier expected here
+VC.Recogniser.SyntaxError
+	at VC.Recogniser.Recogniser.syntacticError(Recogniser.java:93)
+	at VC.Recogniser.Recogniser.parseIdent(Recogniser.java:455)
+	at VC.Recogniser.Recogniser.parseDeclarator(Recogniser.java:262)
+	at VC.Recogniser.Recogniser.parseInitDeclarator(Recogniser.java:291)
+	at VC.Recogniser.Recogniser.parseInitDeclaratorList(Recogniser.java:301)
+	at VC.Recogniser.Recogniser.parseVarDecl(Recogniser.java:312)
+	at VC.Recogniser.Recogniser.parseVarDeclList(Recogniser.java:345)
+	at VC.Recogniser.Recogniser.parseCompoundStmt(Recogniser.java:335)
+	at VC.Recogniser.Recogniser.parseFuncDecl(Recogniser.java:325)
+	at VC.Recogniser.Recogniser.parseProgram(Recogniser.java:137)
+	at VC.vc.main(vc.java:37)
+Compilation was unsuccessful.
+
+=== t25.vc ===
+======= The VC compiler =======
+ERROR: 2(13)..2(13): ")" expected here
+VC.Recogniser.SyntaxError
+	at VC.Recogniser.Recogniser.syntacticError(Recogniser.java:93)
+	at VC.Recogniser.Recogniser.match(Recogniser.java:80)
+	at VC.Recogniser.Recogniser.parseParaList(Recogniser.java:243)
+	at VC.Recogniser.Recogniser.parseFuncDecl(Recogniser.java:322)
+	at VC.Recogniser.Recogniser.parseProgram(Recogniser.java:137)
+	at VC.vc.main(vc.java:37)
+Compilation was unsuccessful.
+
+=== t26.vc ===
+======= The VC compiler =======
+ERROR: 3(9)..3(11): "]" expected here
+VC.Recogniser.SyntaxError
+	at VC.Recogniser.Recogniser.syntacticError(Recogniser.java:93)
+	at VC.Recogniser.Recogniser.match(Recogniser.java:80)
+	at VC.Recogniser.Recogniser.parseDeclarator(Recogniser.java:269)
+	at VC.Recogniser.Recogniser.parseInitDeclarator(Recogniser.java:291)
+	at VC.Recogniser.Recogniser.parseInitDeclaratorList(Recogniser.java:301)
+	at VC.Recogniser.Recogniser.parseVarDecl(Recogniser.java:312)
+	at VC.Recogniser.Recogniser.parseVarDeclList(Recogniser.java:345)
+	at VC.Recogniser.Recogniser.parseCompoundStmt(Recogniser.java:335)
+	at VC.Recogniser.Recogniser.parseFuncDecl(Recogniser.java:325)
+	at VC.Recogniser.Recogniser.parseProgram(Recogniser.java:137)
+	at VC.vc.main(vc.java:37)
+Compilation was unsuccessful.
+
+=== t27.vc ===
+======= The VC compiler =======
+ERROR: 3(12)..3(12): ";" expected here
+VC.Recogniser.SyntaxError
+	at VC.Recogniser.Recogniser.syntacticError(Recogniser.java:93)
+	at VC.Recogniser.Recogniser.match(Recogniser.java:80)
+	at VC.Recogniser.Recogniser.parseVarDecl(Recogniser.java:313)
+	at VC.Recogniser.Recogniser.parseVarDeclList(Recogniser.java:345)
+	at VC.Recogniser.Recogniser.parseCompoundStmt(Recogniser.java:335)
+	at VC.Recogniser.Recogniser.parseFuncDecl(Recogniser.java:325)
+	at VC.Recogniser.Recogniser.parseProgram(Recogniser.java:137)
+	at VC.vc.main(vc.java:37)
+Compilation was unsuccessful.
+

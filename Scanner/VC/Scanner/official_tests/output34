@@ -1,0 +1,5 @@
+======= The VC compiler =======
+Kind = 37 [<string-literal>], spelling = ""COMP3131\"", position = 1(1)..1(11)
+Kind = 37 [<string-literal>], spelling = ""
+", position = 1(12)..1(13)
+Kind = 39 [$], spelling = "$", position = 1(1)..1(1)

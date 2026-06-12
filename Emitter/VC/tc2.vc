@@ -1,0 +1,9 @@
+int a[5] = {4, 6, 8, 10, 3};
+
+int main() {
+    int x = a[0] + a[1];
+    int y = a[2] - a[0];
+    int z = a[1] * a[4];
+    int w = a[2] / a[4];
+    return 0;
+}

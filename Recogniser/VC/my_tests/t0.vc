@@ -1,0 +1,29 @@
+// t01: var-decl variations
+// covers: all types, array with/without size, initialiser forms, multi-declarator
+
+void main() {
+    // primitive types
+    int a;
+    float b;
+    boolean c;
+
+    // with initialiser
+    int x = 5;
+    float y = 3.14;
+    boolean flag = true;
+
+    // array without size (uninitialised)
+    int arr[];
+
+    // array with size
+    int arr2[10];
+
+    // array with initialiser
+    int arr3[] = {1, 2, 3};
+
+    // multiple declarators in one statement
+    int p = 1, q = 2, r = 3;
+
+    // mix of plain and initialised in one statement
+    int m, n = 0, o;
+}

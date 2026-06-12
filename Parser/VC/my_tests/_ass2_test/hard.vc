@@ -1,0 +1,79 @@
+// Global var decls - covers var-decl, init-declarator-list, declarator, initialiser
+int a = 1, b = 2;
+float arr[3] = {1.0, 2.0, 3.0};
+boolean flag;
+int uninit[];
+
+// Function with no params - covers func-decl, para-list (empty)
+void noArgs() {
+    return;
+}
+
+// Function covering all statement and expression types
+int main(int x, float y, boolean z) {
+
+    // var-decl inside compound-stmt
+    int i = 0;
+    int result[];
+
+    // expr-stmt (empty)
+    ;
+
+    // assignment + all binary operators
+    i = 1 + 2 - 3 * 4 / 5;
+    flag = i == 0 || i != 1 && i < 2 || i <= 3 || i > 4 || i >= 5;
+
+    // unary operators
+    i = -i;
+    i = +i;
+    flag = !flag;
+
+    // primary-expr: identifier, array access, function call, literals, grouped
+    i = arr[0];
+    i = noArgs();
+    i = (1 + 2);
+    i = 42;
+    y = 3.14;
+    flag = true;
+    result = "hello";
+
+    // if-stmt with and without else
+    if (flag) {
+        i = 1;
+    }
+    if (i == 1) {
+        i = 2;
+    } else {
+        i = 3;
+    }
+
+    // while-stmt
+    while (i > 0) {
+        i = i - 1;
+        if (i == 5) {
+            continue;
+        }
+        if (i == 2) {
+            break;
+        }
+    }
+
+    // for-stmt - covers all three optional exprs
+    for (i = 0; i < 10; i = i + 1) {
+        result[i] = i;
+    }
+
+    // for-stmt with empty exprs
+    for (;;) {
+        break;
+    }
+
+    // nested compound-stmt
+    {
+        int inner = 0;
+        inner = inner + 1;
+    }
+
+    // return with expr
+    return i;
+}

@@ -1,0 +1,35 @@
+void ehe() {}
+
+int add(int a, float b) {
+    int result = 10;
+    return result;
+}
+
+float compute(boolean flag, int x[]) {
+    return 1.0;
+}
+
+boolean check() {
+    return true;
+}
+
+int i = 10;
+float k = 19.5;
+boolean arr[10], flag, done;
+
+int main() {
+    int i = 10;
+    float j[100], l, p;
+    boolean time_has_moved_again = true;
+
+    if (you_can_see_this == true) {
+        return meaning_im_good;
+    } else {
+        for (; i = 12; i) {
+            while (abc == xyz) {
+                i = 10 + i * 2 - 1;
+            }
+        }
+        return;
+    }
+}

@@ -1,0 +1,19 @@
+Program
+  DeclList
+    GloablVarDecl
+      int
+      i
+      EmptyExpr
+    DeclList
+      GloablVarDecl
+        float
+        f
+        =
+        FloatExpr
+          1.0
+      DeclList
+        GloablVarDecl
+          boolean
+          b
+          EmptyExpr
+        EmptyDeclList

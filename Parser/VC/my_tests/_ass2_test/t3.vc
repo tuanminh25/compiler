@@ -1,0 +1,51 @@
+// t03: expression operators — every binary and unary operator
+// covers: cond-or, cond-and, equality, relational, additive, multiplicative, unary
+
+void main() {
+    int i;
+    float f;
+    boolean b;
+
+    // additive
+    i = 1 + 2;
+    i = 1 - 2;
+
+    // multiplicative
+    i = 2 * 3;
+    i = 6 / 2;
+
+    // mixed precedence — parser must handle correctly
+    i = 1 + 2 * 3 - 4 / 2;
+
+    // relational
+    b = i < 5;
+    b = i <= 5;
+    b = i > 5;
+    b = i >= 5;
+
+    // equality
+    b = i == 5;
+    b = i != 5;
+
+    // logical
+    b = true || false;
+    b = true && false;
+
+    // chained logical
+    b = i < 5 || i > 10 && i != 7;
+
+    // unary
+    i = -i;
+    i = +i;
+    b = !b;
+
+    // nested unary
+    i = - -i;
+    b = !!b;
+
+    // grouped expression
+    i = (1 + 2) * (3 - 4);
+
+    // grouped with unary
+    i = -(1 + 2);
+}

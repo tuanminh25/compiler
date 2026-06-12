@@ -1,0 +1,6 @@
+int main () {
+    int a = -3;
+    float b = -10.6;
+    float c = a - b;  // a gets i2f before fsub
+    return 0;
+}

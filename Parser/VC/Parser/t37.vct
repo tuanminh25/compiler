@@ -1,0 +1,17 @@
+Program
+  DeclList
+    GloablVarDecl
+      int
+      i
+      EmptyExpr
+    DeclList
+      GloablVarDecl
+        int
+        jj
+        EmptyExpr
+      DeclList
+        GloablVarDecl
+          int
+          kkk
+          EmptyExpr
+        EmptyDeclList

@@ -1,0 +1,9 @@
+float fa[5] = {1.5, 2.5, 3.5, 6.0, 2.0};
+
+int main() {
+    float x = fa[0] + fa[1];
+    float y = fa[2] - fa[0];
+    float z = fa[1] * fa[4];
+    float w = fa[3] / fa[4];
+    return 0;
+}

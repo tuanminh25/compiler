@@ -1,0 +1,12 @@
+int main() {
+    +1; // should pass here
+    -1; // should pass here
+
+    !true; // should pass here
+    !false; // should pass here
+
+    -false; // should break here unless comment out - line 8
+    +true; // should break here unless comment out - line 9
+    !1; // should break here unless comment out - line 10
+    return 0;
+}

@@ -1,0 +1,5 @@
+======= The VC compiler =======
+Kind = 37 [<string-literal>], spelling = ""!\b\n\r\t\'", position = 1(1)..1(12)
+Kind = 38 [<error>], spelling = "\", position = 1(13)..1(13)
+Kind = 37 [<string-literal>], spelling = ""\\"", position = 1(14)..1(17)
+Kind = 39 [$], spelling = "$", position = 2(1)..2(1)

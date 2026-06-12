@@ -1,0 +1,6 @@
+float x = 0.0;
+
+int main() {
+    x = 3.5;
+    return 0;
+}

@@ -1,0 +1,56 @@
+// not have compound stmt yet
+{
+his || haja ;
+return ;
+break;
+continue ; 
+if (i == 10) {
+    hihi = haha;
+}
+
+
+if (i != 20) {
+    huhu = haha;
+} else {
+    ehe = eheaa;
+}
+
+
+return this_is_roshi_kage;
+;
+
+for (i = 10; i < 101; i = i + 1) {
+    hihi = hahha;
+}
+
+for (; i < 101; i = i + 1) {
+    hihi = hahha;
+}
+
+
+for (i = 10; ; i = i + 1) {
+    hihi = hahha;
+}
+
+for (i = 10; ; i = i + 1) {
+    hihi = hahha;
+}
+
+for (; i < 101; i = i + 1) {
+    hihi = hahha;
+}
+
+
+for (i = 10; i < 101; ) {
+    hihi = hahha;
+}
+
+for (; ; ) {
+    hihi = hahha;
+}
+
+while (a == b) {
+    haha = ii;
+}
+
+}

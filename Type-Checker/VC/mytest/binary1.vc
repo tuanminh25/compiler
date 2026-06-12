@@ -1,0 +1,22 @@
+int main() {
+    10 + 9;
+    10 - 9;
+    10 / 9;
+    10 * 9;
+
+
+    10 > 9;
+    10 < 9;
+    10 <= 9;
+    10 >= 9;
+
+    true || false;
+    true && false;
+    
+    true != false;
+    true == false;
+
+    breakhereunlesshandledbycommment;
+
+    return 0;
+}

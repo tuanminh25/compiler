@@ -1,0 +1,145 @@
+// Array-focused VC test: legal and illegal cases, including array initialisers
+// Expected errors annotated inline
+
+// ===================== GLOBAL DECLARATIONS =====================
+
+// LEGAL: global arrays with sizes
+int   gArr[4];
+float gFlt[2];
+
+// ILLEGAL *18: array declared without size
+int   noSize[];
+
+// ILLEGAL *4: void element type (note: has a size so no *18)
+void  voidArr[2];
+
+// ===================== FUNCTIONS =====================
+
+// LEGAL: void function accepting int array (no size in param list is fine)
+void takeInt(int a[]) { }
+
+// LEGAL: void function accepting float array
+void takeFloat(float b[]) { }
+
+// LEGAL: return first element
+int getFirst(int a[]) {
+  int x;
+  x = a[0];
+  return x;
+}
+
+// LEGAL: sum elements — exercises loop + array subscript inside function
+int sumArr(int a[], int n) {
+  int i;
+  int total;
+  i     = 0;
+  total = 0;
+  while (i < n) {
+    total = total + a[i];
+    i = i + 1;
+  }
+  return total;
+}
+
+// ===================== MAIN =====================
+
+int main() {
+
+  // --- Scalars ---
+  int   i;
+  int   j;
+  float f;
+
+  // --- LEGAL: array without initialiser ---
+  int   plain[4];
+
+  // --- LEGAL: correct int array init (all int, count == size) ---
+  int   correct[3] = {10, 20, 30};
+
+  // --- LEGAL: float array with float elements ---
+  float fltArr[2] = {1.5, 2.5};
+
+  // --- LEGAL: float array with int elements — int->float coercion in init ---
+  float coerced[3] = {1, 2, 3};
+
+  // --- LEGAL: float array with mixed int/float (coercion where needed) ---
+  float mixed[2] = {1, 2.5};
+
+  // --- ILLEGAL *14: array initialiser used for a scalar variable ---
+  int   scalar14 = {5, 6};
+
+  // --- ILLEGAL *15: scalar initialiser used for an array variable ---
+  int   arr15[2] = 99;
+
+  // --- ILLEGAL *13 (positions 0 and 1) + *16 (3 elements for size 2) ---
+  int   arr13[2] = {1.0, "bad", 3};
+
+  // --- ILLEGAL *13 at position 1 only (element 0 is a valid float) ---
+  float arr13b[2] = {1.5, "oops"};
+
+  // ===================== LEGAL STATEMENTS =====================
+
+  // Array element writes
+  plain[0] = 1;
+  plain[1] = i;
+  plain[2] = i + j;
+  plain[3] = getFirst(correct);
+
+  // Array element reads
+  i = correct[0];
+  i = correct[2];
+  f = fltArr[0];
+  f = mixed[1];
+
+  // int -> float coercion on write to float array element
+  coerced[0] = i;
+  mixed[0]   = j;
+
+  // Subscript with runtime expression
+  i = correct[j - j];
+  i = plain[sumArr(plain, 4) - sumArr(plain, 4)];
+
+  // Global array access (int -> float coercion on gFlt)
+  gArr[0] = 100;
+  gArr[1] = i;
+  gFlt[0] = f;
+  gFlt[1] = i;
+
+  // LEGAL array-to-array function calls (element types match)
+  takeInt(plain);
+  takeInt(correct);
+  takeFloat(fltArr);
+  takeFloat(coerced);
+  takeFloat(mixed);
+  i = getFirst(plain);
+  i = getFirst(correct);
+  i = sumArr(plain, 4);
+  i = sumArr(gArr, 4);      // global int[] -> int[]: OK
+
+  // Variables declared with illegal inits are STILL in the symbol table
+  // with their declared types, so these calls are legal:
+  takeInt(arr15);            // arr15 is int[2]: OK
+  i = getFirst(arr13);       // arr13 is int[2]: OK
+
+  // ===================== ILLEGAL STATEMENTS =====================
+
+  // *12: scalar used as array
+  i[0];
+
+  // *11 (array used as scalar) then *9 (incompatible types for +)
+  correct + 1;
+
+  // *17: array subscript is not an integer
+  plain["str"];
+
+  // *27: int[] passed to float[] param — element type int != float
+  takeFloat(correct);
+
+  // *27: float[] passed to int[] param — element type float != int
+  takeInt(coerced);
+
+  // *27: scalar int passed to int[] param — not an array at all
+  takeInt(i);
+
+  return 0;
+}

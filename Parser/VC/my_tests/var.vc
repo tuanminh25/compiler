@@ -1,0 +1,7 @@
+int i = 10; 
+int i; 
+int i = {10, 209}; 
+
+float i[100], j, k;
+
+

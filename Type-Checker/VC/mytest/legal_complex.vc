@@ -1,0 +1,323 @@
+// legal_complex.vc — legal test exercising all checker features
+
+// ===================== GLOBAL DECLARATIONS =====================
+
+int   gInt;
+float gFloat;
+
+// Global arrays (sized, no initialisers — valid at global scope)
+int   gArr[4];
+float gFArr[3];
+
+// ===================== HELPER FUNCTIONS =====================
+
+// Scalar params, int return
+int identity(int x) {
+  return x;
+}
+
+// int -> float coercion in return statement
+float intToFloat(int x) {
+  return x;
+}
+
+boolean negate(boolean b) {
+  return !b;
+}
+
+int sumTwo(int a, int b) {
+  int result;
+  result = a + b;
+  return result;
+}
+
+// float + float, returns float
+float addFloats(float a, float b) {
+  float result;
+  result = a + b;
+  return result;
+}
+
+// Array parameter (no size required in param declaration)
+void fillArray(int a[], int n) {
+  int i;
+  i = 0;
+  while (i < n) {
+    a[i] = i;
+    i = i + 1;
+  }
+}
+
+int arraySum(int a[], int n) {
+  int i;
+  int total;
+  i = 0;
+  total = 0;
+  while (i < n) {
+    total = total + a[i];
+    i = i + 1;
+  }
+  return total;
+}
+
+// Multiple param types
+void printAll(int i, float f, boolean b) {
+  putInt(i);
+  putFloat(f);
+  putBool(b);
+  putLn();
+}
+
+// ===================== MAIN =====================
+
+int main() {
+
+  // ---- All local declarations first ----
+  int   a;
+  int   b;
+  int   c;
+  float x;
+  float y;
+  boolean flag;
+  boolean flag2;
+  int   i;
+
+  // Arrays with and without initialisers
+  int   arr[4];
+  float farr[3];
+  int   iarr[3];
+
+  // Array initialisers — valid types and counts
+  int   filled[3];
+  float coerced[2];
+
+  // ---- Scalar assignments ----
+  a    = 10;
+  b    = 3;
+  x    = 2.5;
+  flag = true;
+
+  // int -> float coercion in assignment
+  y = a;
+  y = b;
+
+  // ---- Arithmetic ----
+  c = a + b;
+  c = a - b;
+  c = a * b;
+  c = a / b;
+  x = x + 1.0;
+  y = x * 2.0;
+
+  // Mixed int/float with coercion (both directions)
+  y = a + 1.5;      // int a coerced
+  y = 2 + x;        // int 2 coerced
+  y = a * x;        // int a coerced
+
+  // ---- Unary ----
+  c    = -a;
+  c    = +b;
+  y    = -x;
+  flag = !flag;
+
+  // ---- Comparison operators ----
+  flag  = a > b;
+  flag  = a < b;
+  flag  = a >= b;
+  flag  = a <= b;
+  flag2 = a > 1.5;    // int -> float coercion
+  flag2 = 3 < x;      // int -> float coercion
+  flag2 = x > y;
+
+  // ---- Equality operators ----
+  flag  = a == b;
+  flag  = a != b;
+  flag  = x == y;
+  flag2 = flag == true;
+  flag2 = flag != false;
+
+  // ---- Boolean operators ----
+  flag  = flag && flag2;
+  flag  = flag || flag2;
+  flag2 = !flag;
+
+  // ---- Scalar function calls ----
+  c = identity(a);
+  c = identity(5);
+  c = identity(a + b);
+  y = intToFloat(a);
+  y = intToFloat(10);
+  flag  = negate(true);
+  flag  = negate(flag2);
+  c = sumTwo(a, b);
+  c = sumTwo(3, identity(b));       // nested call as arg
+  c = identity(identity(a));        // doubly nested
+
+  // int -> float coercion in function args
+  y = addFloats(x, 1.0);
+  y = addFloats(x, y);
+  y = addFloats(a, x);              // int a coerced for float param
+  y = addFloats(1, 2.5);            // int 1 coerced
+
+  // Chained calls
+  c = sumTwo(identity(a), sumTwo(b, 1));
+  y = intToFloat(identity(a));
+
+  // ---- Built-in I/O ----
+  a = getInt();
+  x = getFloat();
+  putInt(a);
+  putIntLn(c);
+  putFloat(x);
+  putFloatLn(y);
+  putBool(flag);
+  putBoolLn(flag2);
+  putString("hello");
+  putStringLn("world");
+  putLn();
+
+  // ---- Array element assignment ----
+  arr[0] = 1;
+  arr[1] = a;
+  arr[2] = a + b;
+  arr[3] = identity(b);
+
+  farr[0] = 1.5;
+  farr[1] = x;
+  farr[2] = y;
+
+  // int -> float coercion on array element write
+  farr[0] = a;
+
+  // ---- Array element reads ----
+  c = arr[0];
+  c = arr[b - b];             // subscript expression
+  c = arr[sumTwo(0, 1)];      // call as subscript
+  y = farr[0];
+  y = farr[1];
+
+  // ---- Array in global scope ----
+  gArr[0]  = 10;
+  gArr[1]  = 20;
+  gFArr[0] = 1.1;
+  gFArr[1] = 2.2;
+
+  // ---- Array-to-array function calls ----
+  fillArray(arr, 4);
+  c = arraySum(arr, 4);
+
+  // Pass global array — element types match
+  fillArray(gArr, 4);
+  c = arraySum(gArr, 4);
+
+  // ---- printAll: int, float, boolean params ----
+  printAll(a, x, flag);
+  printAll(5, 3.14, false);
+  printAll(a, a, flag);       // second arg int a coerced to float
+
+  // ---- If / if-else ----
+  if (flag)
+    c = 1;
+
+  if (a > 0)
+    c = a;
+  else
+    c = -a;
+
+  // If with compound bodies
+  if (flag && flag2) {
+    c = a + b;
+    y = x + 1.0;
+  } else {
+    c = 0;
+    y = 0.0;
+  }
+
+  // Nested if
+  if (a > 0) {
+    if (x > 0.0)
+      flag = true;
+    else
+      flag = false;
+  }
+
+  // ---- While loop ----
+  i = 0;
+  while (i < 4) {
+    arr[i] = i * 2;
+    i = i + 1;
+  }
+
+  // While with break
+  i = 0;
+  while (true) {
+    i = i + 1;
+    if (i == 5)
+      break;
+  }
+
+  // While with continue
+  i = 0;
+  while (i < 6) {
+    i = i + 1;
+    if (i == 3)
+      continue;
+    putInt(i);
+  }
+
+  // ---- For loop ----
+  for (i = 0; i < 4; i = i + 1)
+    putInt(arr[i]);
+
+  for (i = 0; i < 4; i = i + 1) {
+    arr[i] = identity(i);
+    putInt(arr[i]);
+  }
+
+  // For with break
+  for (i = 0; i < 100; i = i + 1) {
+    if (i == 10)
+      break;
+  }
+
+  // For with continue
+  for (i = 0; i < 6; i = i + 1) {
+    if (i == 2)
+      continue;
+    putInt(i);
+  }
+
+  // For with empty init and update (condition only)
+  i = 0;
+  for (; i < 4; ) {
+    i = i + 1;
+  }
+
+  // ---- Nested loops ----
+  for (i = 0; i < 3; i = i + 1) {
+    c = 0;
+    while (c < 3) {
+      c = c + 1;
+    }
+  }
+
+  // Nested if inside loop
+  i = 0;
+  while (i < 4) {
+    if (arr[i] > 2)
+      putInt(arr[i]);
+    else
+      putInt(0);
+    i = i + 1;
+  }
+
+  // ---- Complex expressions ----
+  flag  = (a > 0) && (x < 10.0);
+  flag  = (a == 0) || (c != 0);
+  c     = (a + b) * (a - b);
+  y     = (x + 1.0) / (x + 0.5);
+  flag2 = !(a == b) && (x > 0.0);
+
+  // ---- Return int from main ----
+  return 0;
+}

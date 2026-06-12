@@ -1,0 +1,17 @@
+// t02: assignment-expr chaining
+// covers: ( cond-or-expr "=" )* cond-or-expr — the * means zero or more assignments chained
+
+void main() {
+    int a;
+    int b;
+    int c;
+
+    // single assignment
+    a = 1;
+
+    // chained assignment — a = b = c = 5
+    a = b = c = 5;
+
+    // assignment where right side is a complex expr
+    a = b = 1 + 2 * 3;
+}

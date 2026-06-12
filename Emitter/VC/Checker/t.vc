@@ -1,0 +1,6 @@
+void foo() {
+	int i = foo;
+	int arr[] = foo;
+	int a1[] = { 1 };
+	int a2[] = a1;
+}

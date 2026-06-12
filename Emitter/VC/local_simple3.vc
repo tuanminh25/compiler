@@ -1,0 +1,8 @@
+float foo(float x, int a) {
+    x = a;
+    return x;
+}
+
+int main() {
+    return 0;
+}

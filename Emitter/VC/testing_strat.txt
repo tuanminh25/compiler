@@ -1,0 +1,41 @@
+Checkpoint 1 — Read the .j file directly
+
+Before even running Jasmin, open the .j file 
+your Emitter produces and read it. 
+For int main() { return 0; } you should expect to see something like:
+
+
+.class public test
+.super java/lang/Object
+
+.method static <clinit>()V
+  .limit locals 0
+  .limit stack 0
+  return
+.end method
+
+.method public <init>()V
+  .limit stack 1
+  .limit locals 1
+  aload_0
+  invokespecial java/lang/Object/<init>()V
+  return
+.end method
+
+.method public static main([Ljava/lang/String;)V
+  ...
+  return
+.end method
+
+
+Checkpoint 2 — Jasmin rejects it if it's structurally wrong
+
+If the .j file has malformed instructions, wrong descriptors, or bad structure, 
+Jasmin will give you an error with a line number pointing directly at the problem in the .j file. 
+This catches things like wrong type descriptors or missing .end method.
+
+Checkpoint 3 — The JVM output
+
+The final truth — run it and see if it actually produces the right output. 
+For putIntLn(42) you'd expect to see 42 printed. 
+For gcd, you'd feed it inputs and check the result.

@@ -1,0 +1,5 @@
+int main() {
+    int a = 5;      // LocalVarDecl with initializer → visitLocalVarDecl
+    a = 10;         // AssignExpr → visitAssignExpr
+    return 0;
+}

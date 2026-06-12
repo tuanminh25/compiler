@@ -1,0 +1,11 @@
+if (i == 10) {
+    hihi = haha;
+}
+
+
+if (i != 20) {
+    huhu = haha;
+} else {
+    ehe = eheaa;
+}
+

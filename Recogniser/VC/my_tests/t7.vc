@@ -1,0 +1,27 @@
+// t07: global scope var-decl and mixed func/var ordering
+// covers: program -> ( func-decl | var-decl )* at global level
+
+// global vars before any function
+int globalA = 1;
+float globalB;
+boolean globalC = false;
+int globalArr[] = {1, 2, 3};
+
+// function between global vars
+void between() {
+    return;
+}
+
+// more global vars after a function
+int globalD = 4;
+
+// function using global vars
+int useGlobals() {
+    return globalA;
+}
+
+// function at end
+void last() {
+    int x = globalD;
+    return;
+}

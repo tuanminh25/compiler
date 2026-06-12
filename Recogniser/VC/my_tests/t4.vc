@@ -1,0 +1,84 @@
+// t04: all statement types
+// covers: if, if-else, nested if-else, while, for (all expr variants), break, continue, return
+
+boolean helper(int x) {
+    return x > 0;
+}
+
+void main() {
+    int i;
+    boolean b;
+
+    // if without else
+    if (true) {
+        i = 1;
+    }
+
+    // if with else
+    if (i == 0) {
+        i = 1;
+    } else {
+        i = 2;
+    }
+
+    // nested if-else (dangling else — else binds to nearest if)
+    if (i < 0) {
+        if (i < -10) {
+            i = -10;
+        } else {
+            i = -1;
+        }
+    } else {
+        i = 0;
+    }
+
+    // while
+    while (i < 10) {
+        i = i + 1;
+    }
+
+    // while with break and continue
+    while (true) {
+        if (i == 5) {
+            continue;
+        }
+        if (i == 10) {
+            break;
+        }
+        i = i + 1;
+    }
+
+    // for — all exprs present
+    for (i = 0; i < 10; i = i + 1) {
+        b = helper(i);
+    }
+
+    // for — all exprs empty
+    for (;;) {
+        break;
+    }
+
+    // for — only condition present
+    for (; i < 10;) {
+        i = i + 1;
+    }
+
+    // for — only init present
+    for (i = 0;;) {
+        break;
+    }
+
+    // empty expr-stmt
+    ;
+
+    // expr-stmt with expression
+    i = i + 1;
+
+    // return without expr
+    return;
+}
+
+int withReturn() {
+    int x = 42;
+    return x;
+}

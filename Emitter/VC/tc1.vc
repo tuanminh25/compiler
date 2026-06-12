@@ -1,0 +1,6 @@
+int main() {
+    int c[3] = {5, 10, 15};
+    int x = c[0];
+    int y = c[2];
+    return 0;
+}

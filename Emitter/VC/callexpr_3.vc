@@ -1,0 +1,8 @@
+int square(int a) {
+    return a * a;
+}
+
+int main() {
+    int x = square(3) + square(4);
+    return 0;
+}

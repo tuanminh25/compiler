@@ -1,0 +1,7 @@
+int gi;
+float gf;
+boolean gb;
+
+int main() {
+    return 0;
+}

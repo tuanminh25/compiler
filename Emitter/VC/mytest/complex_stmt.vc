@@ -1,0 +1,88 @@
+int main() {
+    int i = 0;
+    int j = 0;
+    int sum = 0;
+    boolean flag = true;
+    boolean done = false;
+
+    // nested if/else
+    if (flag) {
+        if (i == 0) {
+            sum = sum + 1;
+        } else {
+            sum = sum + 2;
+        }
+    } else {
+        sum = sum + 3;
+    }
+
+    // for loop with break
+    for (i = 0; i < 10; i = i + 1) {
+        if (i == 5) {
+            break;
+        }
+        sum = sum + i;
+    }
+
+    // for loop with continue
+    for (i = 0; i < 5; i = i + 1) {
+        if (i == 2) {
+            continue;
+        }
+        sum = sum + i;
+    }
+
+    // while loop with break
+    while (flag) {
+        sum = sum + 1;
+        if (sum > 30) {
+            break;
+        }
+    }
+
+    // while loop with continue
+    i = 0;
+    while (i < 5) {
+        i = i + 1;
+        if (i == 3) {
+            continue;
+        }
+        sum = sum + i;
+    }
+
+    // nested for with break and continue
+    for (i = 0; i < 3; i = i + 1) {
+        for (j = 0; j < 5; j = j + 1) {
+            if (j == 2) {
+                continue;
+            }
+            if (j == 4) {
+                break;
+            }
+            sum = sum + 1;
+        }
+    }
+
+    // boolean logic in condition
+    if (flag && !done) {
+        sum = sum + 10;
+    } else {
+        sum = sum + 20;
+    }
+
+    if (!flag || done) {
+        sum = sum + 100;
+    } else {
+        sum = sum + 200;
+    }
+
+    // early return if sum is negative (sanity guard)
+    if (sum < 0) {
+        putIntLn(-1);
+        return -1;
+    }
+
+    putIntLn(sum);
+
+    return 0;
+}

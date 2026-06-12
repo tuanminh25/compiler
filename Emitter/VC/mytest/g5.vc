@@ -1,0 +1,2 @@
+// global var decl with CallExpr like int a = foo(5);
+// this is quite complicated - check later

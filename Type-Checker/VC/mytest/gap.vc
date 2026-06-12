@@ -1,0 +1,105 @@
+// gap.vc
+// Covers error cases NOT exercised by t1.vc and t2.vc.
+// Each function is independent and fires exactly the labelled error(s).
+
+// *30 — statements not reached after break (inside loop)
+int g_break_unreachable() {
+  while (true) {
+    break;
+    return 0;    // *30: statement(s) not reached
+  }
+  return 0;
+}
+
+// *30 — statements not reached after continue (inside loop)
+int g_continue_unreachable() {
+  while (true) {
+    continue;
+    return 0;    // *30: statement(s) not reached
+  }
+  return 0;
+}
+
+// *10 — unary minus applied to boolean
+int g_unary_minus_bool() {
+  -true;         // *10: incompatible type for this unary operator: -
+  return 0;
+}
+
+// *10 — unary plus applied to boolean
+int g_unary_plus_bool() {
+  +false;        // *10: incompatible type for this unary operator: +
+  return 0;
+}
+
+// *8 — returning int from a boolean function
+boolean g_wrong_return_bool() {
+  return 1;      // *8: incompatible type for return
+}
+
+// *8 — returning a value from a void function
+void g_void_returns_value() {
+  return 1.0;    // *8: incompatible type for return
+}
+
+// *31 — non-void function with body but no return at all
+int g_no_return() {
+  int x;
+  x = 1;
+               // *31: missing return statement
+}
+
+// *6 — assigning int to a boolean variable
+int g_bool_assign_int() {
+  boolean b;
+  b = 1;         // *6: incompatible type for =
+  return 0;
+}
+
+// *9 — relational operator applied to boolean operands
+int g_bool_relational() {
+  true < false;  // *9: incompatible type for this binary operator: <
+  return 0;
+}
+
+// *19 — calling a local scalar variable as a function
+int g_local_scalar_called() {
+  int x;
+  x();           // *19: attempt to reference a scalar/array as a function
+  return 0;
+}
+
+// *11 — passing an array where a scalar parameter is expected
+void takes_scalar(int x) { }
+
+int g_array_to_scalar_param() {
+  int a[2];
+  takes_scalar(a);  // *11: attempt to use an array/function as a scalar
+  return 0;
+}
+
+// *27 — passing a scalar where an array parameter is expected
+void takes_array(int x[]) { }
+
+int g_scalar_to_array_param() {
+  int i;
+  takes_array(i);   // *27: wrong type for actual parameter
+  return 0;
+}
+
+// *2 — local variable redeclared within the same scope
+int g_local_redecl() {
+  int x;
+  int x;         // *2: identifier redeclared: x
+  return 0;
+}
+
+// *18 — array declared without a size as a local variable
+int g_local_array_no_size() {
+  int a[];       // *18: array size missing: a
+  return 0;
+}
+
+int main() {
+  return 0;
+}

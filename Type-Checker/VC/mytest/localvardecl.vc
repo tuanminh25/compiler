@@ -1,0 +1,14 @@
+int main() {
+    int x;
+    float y;
+    boolean o;
+
+    int k[];
+    float j[];
+    boolean p[];
+
+    void t;
+    void i[];
+
+    return 0;
+}

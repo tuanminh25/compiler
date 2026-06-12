@@ -1,0 +1,7 @@
+int ga[3];
+float fa[2];
+boolean ba[4];
+
+int main() {
+    return 0;
+}
